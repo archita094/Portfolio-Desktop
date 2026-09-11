@@ -1,0 +1,23 @@
+/* ===== XP Boot Screen ===== */
+.xp-boot {
+  background: #000000;
+}
+
+.xp-boot-logo {
+  background: linear-gradient(180deg, #000000 0%, #0a0a2a 100%);
+}
+
+.xp-boot-bar-track {
+  background: #1a1a2a;
+  border: 1px solid #333;
+  height: 16px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.xp-boot-bar-fill {
+  background: linear-gradient(180deg, #6bb6ff 0%, #2b80ee 50%, #1265e6 100%);
+  height: 100%;
+  transition: width 0.3s linear;
+  border-right: 2px solid #ffffff;
+}

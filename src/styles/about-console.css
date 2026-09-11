@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+/* =========================================================
+   CONSOLE APP CONTAINER INSIDE WINDOW
+========================================================= */
+
+.about-console-app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.about-console-app .wallpaper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.about-console-app .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONSOLE POSITION & BODY
+========================================================= */
+
+.about-console-app .console-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 890px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.console-wrapper 
+{
+  margin-left: 20px !important;
+}
+.about-console-app .console {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  background: linear-gradient(145deg,
+      rgba(55, 60, 70, 0.95),
+      rgba(15, 18, 23, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.75),
+    0 15px 25px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  container-type: inline-size;
+  container-name: console;
+}
+
+.about-console-app .console:hover {
+  transform: scale(1.003);
+}
+
+.about-console-app .console::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONSOLE TOP
+========================================================= */
+
+.about-console-app .console-top {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 6px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-family: "Space Mono", monospace;
+  color: rgba(251, 246, 246, 0.622);
+  flex-shrink: 0;
+}
+
+.about-console-app .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-console-app .brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #55e6a5;
+  box-shadow: 0 0 8px #55e6a5;
+}
+
+.about-console-app .console-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.about-console-app .status-light {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #55e6a5;
+  box-shadow: 0 0 7px #55e6a5;
+  animation: console-blink 2s infinite;
+}
+
+@keyframes console-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   ACTUAL SCREEN
+========================================================= */
+
+.about-console-app .screen {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 14px;
+  position: relative;
+  background: linear-gradient(145deg,
+      rgba(8, 13, 20, 0.84),
+      rgba(4, 7, 11, 0.78));
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.75),
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.about-console-app .screen::-webkit-scrollbar {
+  width: 7px;
+}
+
+.about-console-app .screen::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.about-console-app .screen::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.12));
+  border-radius: 10px;
+}
+
+.about-console-app .screen::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.about-console-app .screen-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  background: rgba(8, 12, 18, 0.86);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: "Space Mono", monospace;
+  overflow-x: hidden;
+}
+
+@container console (min-width: 580px) {
+  .about-console-app .screen-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 900px) {
+  .about-console-app .screen-nav {
+    display: flex;
+  }
+}
+
+.about-console-app .screen-nav button {
+  border: 0;
+  background: transparent;
+  color: rgba(249, 244, 244, 0.889);
+  font-size: 11px;
+  letter-spacing: 0.9px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.about-console-app .screen-nav button:hover {
+  color: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.about-console-app .portfolio-section {
+  padding: 32px 36px;
+  scroll-margin-top: 50px;
+}
+
+.about-console-app .home-section {
+  padding-top: 36px;
+}
+
+.about-console-app .section-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.25),
+      transparent);
+  margin: 24px 0;
+}
+
+.about-console-app .section-label,
+.about-console-app .section-heading {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .section-label span,
+.about-console-app .section-heading span {
+  color: rgba(169, 169, 169, 0.768);
+  margin-right: 10px;
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.about-console-app .profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-console-app .profile-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.about-console-app .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.about-console-app .profile-info h1 {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.05;
+  margin: 4px 0 7px;
+  letter-spacing: -1px;
+  font-weight: 800;
+}
+
+.about-console-app .mini-label {
+  font-size: 10px;
+  color: rgba(252, 244, 244, 0.511);
+  letter-spacing: 2px;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .role {
+  color: rgba(255, 255, 255, 0.786);
+  font-size: 14px;
+}
+
+/* =========================================================
+   ABOUT TEXT & STATS
+========================================================= */
+
+.about-console-app .about-text {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.658);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.about-console-app .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 24px 0;
+}
+.stats {
+  margin-bottom: 70px !important;
+}
+.about-console-app .stat {
+  padding: 14px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.about-console-app .stat strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .stat span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.719);
+  font-family: "Space Mono", monospace;
+}
+
+/* =========================================================
+   EDUCATION & EXPERIENCE
+========================================================= */
+.about-console-app .education-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-console-app .education-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 20px;
+}
+
+.about-console-app .education-card h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.about-console-app .education-card p {
+  color: rgba(243, 240, 240, 0.571);
+  font-size: 12px;
+}
+
+.about-console-app .experience-card {
+  padding: 22px;
+   margin-bottom: 20px;
+  border-radius: 13px;
+  background: linear-gradient(145deg,
+      rgba(5, 0, 0, 0.07),
+      rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.about-console-app .experience-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.about-console-app .card-tag {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: rgba(245, 243, 243, 0.648);
+  margin-bottom: 8px;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .experience-card h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.about-console-app .muted {
+  color: rgba(241, 237, 237, 0.538);
+  font-size: 12px;
+}
+
+.about-console-app .level-badge {
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .experience-line {
+  height: 1px;
+  margin: 16px 0;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.611),
+      transparent);
+}
+
+.about-console-app .experience-card ul {
+  padding-left: 18px;
+  color: rgb(255, 255, 255);
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.about-console-app .experience-card li {
+  margin-bottom: 8px;
+}
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.about-console-app .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.about-console-app .project-card {
+  min-height: 240px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-console-app .project-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.about-console-app .project-number {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(255, 254, 254, 0.484);
+  margin-bottom: 14px;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .project-icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.about-console-app .project-card h2 {
+  font-size: 16px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.about-console-app .project-type {
+  color: rgba(255, 255, 255, 0.533);
+  font-size: 11px;
+  line-height: 1.4;
+  min-height: 32px;
+}
+
+.about-console-app .project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.803);
+  margin-top: 12px;
+}
+
+.about-console-app .project-tech span {
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-console-app .project-button {
+  margin-top: auto;
+  padding-top: 16px;
+  color: rgba(251, 248, 248, 0.75);
+  text-decoration: none;
+  font-size: 9px;
+  letter-spacing: 1px;
+  transition: 0.25s ease;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .project-button:hover {
+  color: white;
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.about-console-app .skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.about-console-app .skill-category {
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.25s ease;
+}
+
+.about-console-app .skill-category:hover {
+  background: rgba(255, 255, 255, 0.075);
+  transform: translateY(-2px);
+}
+
+.about-console-app .skill-title {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.about-console-app .skill-list span {
+  font-size: 11px;
+  color: rgb(255, 255, 255);
+  padding: 6px 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.086);
+
+}
+
+.skill-list :hover {
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.about-console-app .achievement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-console-app .achievement {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-console-app .achievement-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 16px;
+}
+
+.about-console-app .achievement h3 {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.about-console-app .achievement p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+}
+
+.about-console-app .unlocked {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: rgba(85, 230, 165, 0.8);
+  font-family: "Space Mono", monospace;
+}
+
+/* =========================================================
+   CONTACT & FOOTER
+========================================================= */
+
+.about-console-app .contact-section {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.about-console-app .contact-section .section-heading {
+  text-align: left;
+}
+
+.about-console-app .contact-title {
+  font-size: clamp(22px, 3.5vw, 32px);
+  margin-top: 25px;
+  letter-spacing: -1px;
+  font-weight: 800;
+}
+
+.about-console-app .contact-text {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  margin: 10px auto 20px;
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+.about-console-app .contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-console-app .contact-links a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 9px;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.25s ease;
+  font-family: "Space Mono", monospace;
+}
+
+.about-console-app .contact-links a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.about-console-app .console-bottom {
+  height: 32px;
+  padding: 6px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  font-family: "Space Mono", monospace;
+  flex-shrink: 0;
+}
+
+.about-console-app .console-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.about-console-app .control-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.about-console-app .version {
+  opacity: 0.5;
+}
+
+/* Responsive adjustments inside window container */
+@media (max-width: 768px) {
+  .about-console-app .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-console-app .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-console-app .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

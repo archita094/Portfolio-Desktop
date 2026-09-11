@@ -1,0 +1,378 @@
+.pl-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* Fullscreen background video */
+.pl-background-video,
+.pl-container video.wallpaper {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+/* Makes the video less distracting */
+.pl-video-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.42)
+    );
+
+  backdrop-filter: blur(2px);
+}
+
+/* Center card with scrollable container */
+.pl-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 24px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Glass card */
+.pl-project-card {
+  width: min(780px, 100%);
+  margin: auto;
+  max-height: none;
+
+  overflow-y: visible;
+
+  padding: 36px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(12, 12, 16, 0.68);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  animation: projectCardIn 0.7s ease-out;
+}
+
+/* Header */
+.pl-project-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  margin-bottom: 30px;
+}
+
+.pl-project-icon {
+  flex-shrink: 0;
+
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  font-size: 34px;
+}
+
+.pl-eyebrow,
+.pl-section-label {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.pl-project-heading h1 {
+  margin: 5px 0 8px;
+
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.pl-project-heading p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  line-height: 1.6;
+}
+
+
+/* Sections */
+.pl-section {
+  margin-bottom: 30px;
+}
+
+.pl-section-label {
+  margin-bottom: 13px;
+}
+
+.pl-description {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* Features */
+.pl-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.pl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 13px;
+}
+
+.pl-check {
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgb(66, 34, 154);
+}
+
+
+/* Technologies */
+.pl-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pl-tech-tag {
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 12px;
+}
+
+
+/* Humor */
+.pl-humor {
+  display: flex;
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  margin-bottom: 28px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pl-humor span {
+  color: white;
+}
+
+.pl-humor p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* Buttons */
+.pl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  padding-top: 5px;
+}
+
+.pl-primary-btn,
+.pl-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 16px;
+
+  border-radius: 11px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.pl-primary-btn {
+  border: 0;
+
+  background: white;
+  color: #111;
+}
+
+.pl-secondary-btn {
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color: white;
+}
+
+.pl-primary-btn:hover,
+.pl-secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Animation */
+@keyframes projectCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .pl-content {
+    padding: 15px;
+  }
+
+  .pl-project-card {
+    max-height: calc(100vh - 30px);
+
+    padding: 26px 20px;
+
+    border-radius: 22px;
+  }
+
+  .pl-project-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pl-project-heading h1 {
+    font-size: 34px;
+  }
+
+  .pl-project-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .pl-project-meta > div {
+    border-right: 0;
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .pl-project-meta > div:last-child {
+    border-bottom: 0;
+  }
+
+  .pl-actions {
+    flex-direction: column;
+  }
+
+  .pl-primary-btn,
+  .pl-secondary-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,98 @@
+/* ===== XP Taskbar ===== */
+.xp-taskbar {
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+  height: 41px;
+  background: rgba(0, 0, 0, 0.333);
+  backdrop-filter: blur(20px);
+}
+
+.xp-start-btn {
+  padding: 4px 16px 4px 10px;
+  color: white;
+  font-style: italic;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  transition: all 0.1s ease;
+}
+
+.xp-start-btn:hover {
+  background: linear-gradient(180deg, #1a1c1986 0%, #21212181 50%, #242424 100%);
+  filter: brightness(1.05);
+}
+
+
+/* ===== XP Start Menu ===== */
+.xp-start-menu {
+  background: rgba(1, 9, 20, 0.696);
+  border-radius: 8px 8px 0 0;
+  backdrop-filter: blur(14px);
+  box-shadow: 6px 0px 15px rgb(0, 0, 0);
+  width: 300px;
+  overflow: hidden;
+}
+
+.xp-start-menu-header {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.xp-start-menu-footer {
+  padding: 6px 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.xp-start-menu-footer-btn {
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background 0.1s;
+}
+
+
+
+.xp-start-menu-item {
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: rgb(230, 216, 216);
+  border-radius: 2px;
+  margin: 0 3px;
+
+  transition: background 0.08s;
+}
+
+.xp-start-menu-item:hover {
+  background: linear-gradient(180deg, #4e4e4e34 0%, #3b3b3b62 100%);
+  color: white;
+  cursor: pointer;
+}
+
+.xp-start-menu-item:hover .start-menu-icon {
+  filter: brightness(1.1);
+}
+
+.xp-start-menu-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #aca899 20%, #aca899 80%, transparent);
+  margin: 4px 10px;
+}
+.taskbar-pic
+{
+  width: 50px;
+  height: 50px;
+}

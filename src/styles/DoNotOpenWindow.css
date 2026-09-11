@@ -1,0 +1,93 @@
+/* ========================================
+   DO NOT OPEN WINDOW
+   Scoped styles only
+   ======================================== */
+
+.donotopen-window {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Force all normal text inside this window to black */
+.donotopen-window,
+.donotopen-window p,
+.donotopen-window h1,
+.donotopen-window h2,
+.donotopen-window h3,
+.donotopen-window h4,
+.donotopen-window span,
+.donotopen-window div {
+  color: #000000;
+}
+
+/* Keep button text white */
+.donotopen-window button {
+  color: #fbf8f8 !important;
+  background: rgb(236, 0, 0);
+  border-radius: 30px;
+}
+.donotopen-window button:hover{
+  color: #fbf8f8 !important;
+  background: rgb(253, 13, 13);
+  border-radius: 30px;
+  transform: scale(1.03);
+}
+/* Footer text */
+.donotopen-window .donotopen-muted {
+  color: #000000 !important;
+}
+
+/* Remove any inherited dark backgrounds */
+.donotopen-window .donotopen-card {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Content box */
+.donotopen-window .donotopen-content {
+  background: #f8f8f8;
+  color: #000000;
+  border: 1px solid #e5e5e5;
+}
+
+/* Button */
+.donotopen-window .donotopen-button {
+  color: #ffffff !important;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.donotopen-window .donotopen-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.donotopen-window .donotopen-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Prevent global button styles from messing with it */
+.donotopen-window button:focus {
+  outline: none;
+}
+
+.donotopen-window button:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Progress indicators */
+.donotopen-window .progress-active {
+  background: #000000;
+}
+
+.donotopen-window .progress-inactive {
+  background: #d4d4d4;
+}
+
+/* Status icon */
+.donotopen-window .status-icon {
+  color: #000000 !important;
+}

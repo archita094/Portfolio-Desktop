@@ -1,0 +1,343 @@
+/* ===== XP Window Chrome ===== */
+
+/* Floating Fullscreen Exit Cross Button */
+.fullscreen-exit-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 999999;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #dc2626;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.fullscreen-exit-btn:hover {
+  background: #ef4444;
+  transform: scale(1.12);
+  box-shadow: 0 6px 22px rgba(239, 68, 68, 0.7);
+}
+
+.fullscreen-exit-btn:active {
+  transform: scale(0.92);
+}
+
+.xp-titlebar {
+  height: 30px;
+  background: rgba(0, 0, 0, 0.305);
+  backdrop-filter:
+    blur(20px);
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 0 3px 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 7px 7px 0 0;
+  position: relative;
+}
+
+.xp-titlebar::before {
+  display: none;
+}
+
+.xp-titlebar.inactive {
+  background: rgba(0, 0, 0, 0.305);
+  backdrop-filter: blur(20px);
+}
+
+.xp-titlebar-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.xp-titlebar-title {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  padding-left: 4px;
+}
+
+/* XP title bar buttons */
+.xp-tb-btn {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.1s ease;
+  flex-shrink: 0;
+}
+
+.xp-tb-btn.minimize {
+  background: linear-gradient(180deg, #4ba0ff 0%, #2b80ee 100%);
+}
+
+.xp-tb-btn.maximize {
+  background: linear-gradient(180deg, #4ba0ff 0%, #2b80ee 100%);
+}
+
+.xp-tb-btn.close {
+  background: linear-gradient(180deg, #ee5a3a 0%, #cc3a1a 100%);
+  width: 22px;
+}
+
+.xp-tb-btn:hover {
+  filter: brightness(1.15);
+}
+
+.xp-tb-btn:active {
+  filter: brightness(0.85);
+}
+
+/* XP Window body */
+.xp-window-body {
+  background: var(--xp-face);
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== XP Beveled Panels ===== */
+.xp-inset {
+  background: white;
+  border: 1px solid;
+  border-top-color: #7b7868;
+  border-left-color: #7b7868;
+  border-right-color: var(--xp-btn-highlight);
+  border-bottom-color: var(--xp-btn-highlight);
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.xp-outset {
+  background: var(--xp-face);
+  border: 1px solid;
+  border-top-color: var(--xp-btn-highlight);
+  border-left-color: var(--xp-btn-highlight);
+  border-right-color: var(--xp-btn-shadow);
+  border-bottom-color: var(--xp-btn-shadow);
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.xp-field {
+  background: white;
+  border: 1px solid #7f9db9;
+  padding: 2px 4px;
+  font-size: 13px;
+  outline: none;
+  border-radius: 0;
+}
+
+.xp-field:focus {
+  border-color: var(--xp-blue);
+}
+
+/* ===== XP Buttons ===== */
+.xp-button {
+  background: linear-gradient(180deg, #fefefe 0%, #ece9d8 45%, #d6d1c2 100%);
+  border: 1px solid #003c99;
+  padding: 5px 16px;
+  font-size: 12px;
+  color: black;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.1s ease;
+  min-height: 23px;
+  cursor: default;
+}
+
+.xp-button:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f0ede0 45%, #e0dcd0 100%);
+  border-color: var(--xp-blue);
+}
+
+.xp-button:active {
+  background: linear-gradient(180deg, #d6d1c2 0%, #ece9d8 45%, #fefefe 100%);
+  border-color: var(--xp-blue-dark);
+}
+
+.xp-button.primary {
+  background: linear-gradient(180deg, #4ba0ff 0%, #2b80ee 50%, #1265e6 100%);
+  border-color: #003c99;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.xp-button.primary:hover {
+  background: linear-gradient(180deg, #5bb0ff 0%, #3b90fe 50%, #2275f6 100%);
+}
+
+/* ===== XP Skill Bars ===== */
+.xp-progress-bg {
+  background: white;
+  border: 1px solid #7f9db9;
+  height: 16px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.xp-progress-fill {
+  background: linear-gradient(180deg, #5bb0ff 0%, #2b80ee 50%, #1265e6 100%);
+  height: 100%;
+  transition: width 0.8s ease;
+  border-right: 1px solid #003c99;
+}
+
+.xp-progress-blocks {
+  background: repeating-linear-gradient(90deg,
+      #2b80ee 0px, #2b80ee 10px,
+      #1265e6 10px, #1265e6 11px);
+  height: 100%;
+  transition: width 0.8s ease;
+}
+
+/* ===== XP Status Bar ===== */
+.xp-statusbar {
+  background: var(--xp-face);
+  border-top: 1px solid var(--xp-btn-highlight);
+  padding: 2px 8px;
+  font-size: 11px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.xp-statusbar-section {
+  border-right: 1px solid #d4d0c8;
+  padding-right: 12px;
+}
+
+/* ===== XP Group Box ===== */
+.xp-group-box {
+  border: 1px solid #d4d0c8;
+  border-radius: 3px;
+  padding: 12px;
+  margin-top: 8px;
+  position: relative;
+}
+
+.xp-group-box-title {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  background: var(--xp-face);
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ===== XP Tooltip ===== */
+.xp-tooltip {
+  background: #ffffe1;
+  border: 1px solid black;
+  padding: 3px 7px;
+  font-size: 11px;
+  color: black;
+  border-radius: 1px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+/* ===== XP Loading Dialog ===== */
+.xp-loading-window {
+  width: 360px;
+  background: var(--xp-face);
+  border: 1px solid var(--xp-blue-light);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* ===== Pixel Rendering ===== */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===== XP Scrollbar ===== */
+.os-scroll::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+}
+
+.os-scroll::-webkit-scrollbar-track {
+  background: #f1f0ec;
+  border: 1px solid #d4d0c8;
+}
+
+.os-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d6d1c2 0%, #aca899 100%);
+  border: 1px solid #7b7868;
+  border-radius: 2px;
+}
+
+.os-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e0dcd0 0%, #b8b4a4 100%);
+}
+
+.os-scroll::-webkit-scrollbar-button:vertical:start {
+  background: linear-gradient(180deg, #fefefe 0%, #d4d0c8 100%);
+  border: 1px solid #7b7868;
+  height: 17px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='5'><polygon points='4,0 0,5 9,5' fill='%23404040'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.os-scroll::-webkit-scrollbar-button:vertical:end {
+  background: linear-gradient(180deg, #fefefe 0%, #d4d0c8 100%);
+  border: 1px solid #7b7868;
+  height: 17px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='5'><polygon points='4,5 0,0 9,0' fill='%23404040'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ===== EasterEggs custom classes ===== */
+.os-button {
+  background: linear-gradient(180deg, #fefefe 0%, #ece9d8 45%, #d6d1c2 100%);
+  border: 1px solid #003c99;
+  padding: 5px 16px;
+  font-size: 12px;
+  color: black;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.inset-panel {
+  background: white;
+  border: 1px solid;
+  border-top-color: #7b7868;
+  border-left-color: #7b7868;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  padding: 12px;
+  border-radius: 2px;
+}

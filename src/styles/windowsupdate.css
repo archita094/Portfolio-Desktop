@@ -1,0 +1,9 @@
+/* ===== Windows Update Dialog ===== */
+.xp-update-window {
+  width: 380px;
+  background: var(--xp-face);
+  border: 1px solid var(--xp-blue-light);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  overflow: hidden;
+}

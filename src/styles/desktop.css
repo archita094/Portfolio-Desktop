@@ -1,0 +1,518 @@
+/* =========================================================
+   WALLPAPER
+========================================================= */
+
+.wallpaper {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #000;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.wallpaper-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.wallpaper-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.18));
+}
+
+
+/* =========================================================
+   DESKTOP CONTENT
+========================================================= */
+
+.wallpaper-content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+.wallpaper-content > * {
+  pointer-events: auto;
+}
+
+/* =========================================================
+   SPOTIFY NOW PLAYING CARD
+========================================================= */
+
+.now-playing-card {
+  position: absolute;
+
+  right: 25px;
+  bottom: 50px;
+
+  width: 380px;
+  min-height: 180px;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  z-index: 10;
+  pointer-events: auto;
+
+  color: white;
+
+  background:
+    rgba(21, 82, 236, 0.071);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 16px;
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+
+  box-shadow:
+    6px 6px 0px rgba(12, 12, 12, 0.529);
+
+  animation:
+    card-enter 0.5s ease;
+}
+
+/* =========================================================
+   CARD ANIMATION
+========================================================= */
+
+@keyframes card-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   ALBUM ART
+========================================================= */
+
+.album-art {
+  width: 140px;
+
+  height: 140px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+  margin-left: 1x;
+  border-radius: 10px;
+
+  background: #333;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.album-art img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   SONG SECTION
+========================================================= */
+
+.song-section {
+  flex: 1;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SONG TITLE
+========================================================= */
+
+.song-title {
+  font-size: 20px;
+
+  font-weight: 600;
+
+  line-height: 30px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   ARTIST
+========================================================= */
+
+.song-artist {
+  margin-bottom: 2px;
+
+  font-size: 11px;
+
+  line-height: 16px;
+  font-size: 15px;
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-wrapper {
+  margin-top: 8px;
+}
+
+
+.progress-bar {
+  position: relative;
+
+  width: 88%;
+
+  height: 5px;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.2);
+}
+
+
+.progress-fill {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  height: 100%;
+
+  border-radius: 10px;
+
+  background: white;
+}
+
+
+.progress-dot {
+  position: absolute;
+
+  top: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transform:
+    translate(-50%, -50%);
+
+  opacity: 0;
+}
+
+
+.progress-bar:hover .progress-dot {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   TIME
+========================================================= */
+
+.time-container {
+  display: flex;
+  width: 95%;
+  justify-content:
+    space-between;
+  margin-left: -6px;
+  margin-top: 3px;
+  padding: 5px;
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.music-controls {
+  display: flex;
+
+  align-items: center;
+  gap: 27px;
+  margin-right: 22px;
+  flex-shrink: 0;
+}
+
+
+.music-button,
+.play-button {
+  border: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
+
+.music-button {
+  width: 36px;
+
+  height: 36px;
+
+  padding: 0;
+
+  background: transparent;
+
+
+  font-size: 25px;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.music-button:hover {
+  opacity: 1;
+
+  transform:
+    scale(1.1);
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.play-button {
+  width: 36px;
+
+  height: 36px;
+
+  padding: 0;
+  border-radius: 50%;
+  margin-top: 4px;
+  color: white;
+
+  font-size: 25px;
+
+  font-weight: bold;
+
+  transition:
+    transform 0.15s ease;
+}
+
+
+.play-button:hover {
+  transform:
+    scale(1.08);
+}
+
+
+.play-button:active {
+  transform:
+    scale(0.95);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .now-playing-card {
+    right: 12px;
+
+    bottom: 12px;
+
+    width:
+      calc(100vw - 24px);
+
+    min-height: 90px;
+
+    padding: 10px;
+  }
+
+
+  .album-art {
+    width: 58px;
+
+    height: 58px;
+  }
+
+
+  .song-title {
+    font-size: 13px;
+  }
+
+
+  .music-controls {
+    gap: 1px;
+  }
+
+}
+
+/* ===== Desktop Icons ===== */
+.desktop-icon {
+  width: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.desktop-icon.selected {
+  background: rgba(59, 130, 246, 0.45);
+  border-color: rgba(147, 197, 253, 0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.desktop-icon-img {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+  transition: transform 0.15s ease;
+}
+
+.desktop-icon:hover .desktop-icon-img {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.desktop-icon-label {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7);
+  line-height: 1.25;
+  word-break: break-word;
+  max-width: 78px;
+}
+
+@media (max-width: 767px) {
+  .desktop-icon {
+    width: 68px;
+  }
+
+  .desktop-icon-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .desktop-icon-label {
+    font-size: 10px;
+    max-width: 64px;
+  }
+}

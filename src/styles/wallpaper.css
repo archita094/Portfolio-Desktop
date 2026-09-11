@@ -1,0 +1,98 @@
+/* ===== XP Wallpaper ===== */
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.wallpaper-bliss {
+  background: linear-gradient(180deg,
+    #4a90d9 0%,
+    #6ab0e9 15%,
+    #8fc8f5 30%,
+    #b8d8e8 42%,
+    #8ec870 42%,
+    #6db050 55%,
+    #5a9d40 70%,
+    #4a8d30 85%,
+    #3a7d20 100%);
+}
+
+.wallpaper-sunset {
+  background: linear-gradient(180deg,
+    #d46a3a 0%,
+    #e88a4a 15%,
+    #f5b070 30%,
+    #f5d0a0 42%,
+    #c8a060 42%,
+    #b08850 55%,
+    #a07840 70%,
+    #806830 85%,
+    #605820 100%);
+}
+
+.wallpaper-night {
+  background: linear-gradient(180deg,
+    #0a0a1a 0%,
+    #1a1a3a 15%,
+    #2a2a4a 30%,
+    #3a3a5a 42%,
+    #1a2a3a 42%,
+    #1a3a2a 55%,
+    #0d2a1a 70%,
+    #0a1d10 85%,
+    #051008 100%);
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  filter: blur(2px);
+}
+
+.hill {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.pixel-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+}
+
+/* ===== Cat Easter Egg ===== */
+.cat-cutout {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 8s ease-in-out, left 10s ease-in-out, bottom 10s ease-in-out, opacity 2s ease;
+}
+
+.cat-silhouette {
+  filter: brightness(0.15) contrast(1.2);
+  opacity: 0.7;
+  transition: filter 3s ease, opacity 3s ease;
+}
+
+.sun-disc {
+  position: absolute;
+  border-radius: 50%;
+  transition: opacity 1s ease;
+}

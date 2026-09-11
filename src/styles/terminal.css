@@ -1,0 +1,38 @@
+/* ===== Terminal ===== */
+.terminal-screen {
+  background: #0c0c0c;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.terminal-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.15) 2px,
+      rgba(0, 0, 0, 0.15) 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.terminal-screen>* {
+  position: relative;
+  z-index: 2;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  width: 100%;
+  caret-color: #00ff00;
+}
