@@ -1088,119 +1088,194 @@ export function ContactWindow({ onXP }: { onXP?: (n: number) => void }) {
   const isDone = sent || spreeState.succeeded;
 
   return (
-    <div className="h-full w-full bg-black text-white p-6 overflow-y-auto font-sans flex flex-col justify-between select-none">
-      <div>
-        {/* Header */}
-        <div className="border-b border-zinc-800 pb-4 mb-4 flex items-center justify-between">
-          <div>
-            <div className="text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">GET IN TOUCH</div>
-            <h2 className="text-xl font-bold text-white tracking-tight mt-0.5">Send a Message</h2>
-          </div>
-          <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white">
-            <Mail size={15} />
-          </div>
+  <div className="contact-page">
+    <div className="contact-glow glow-one" />
+    <div className="contact-glow glow-two" />
+
+    <div className="contact-container">
+      {/* Header */}
+      <div className="contact-header">
+        <div>
+          <span className="contact-eyebrow">GET IN TOUCH</span>
+
+          <h2 className="contact-title">
+            Let's work together<span>.</span>
+          </h2>
+
+          <p className="contact-subtitle">
+            Have a project, idea, or opportunity in mind?
+            Drop me a message and I'll get back to you.
+          </p>
         </div>
 
-        {/* Quick Social Links */}
-        <div className="flex gap-2 mb-4 flex-wrap">
-          <a href={socials.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs hover:bg-zinc-800 hover:text-white transition-all">
-            <Github size={13} /> GitHub
-          </a>
-          <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs hover:bg-zinc-800 hover:text-white transition-all">
-            <Linkedin size={13} /> LinkedIn
-          </a>
-          <a href={`mailto:${socials.email}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs hover:bg-zinc-800 hover:text-white transition-all">
-            <Mail size={13} /> Direct Email
-          </a>
+        <div className="mail-icon">
+          <Mail size={18} />
         </div>
+      </div>
 
-        {/* Success or Form */}
-        {isDone ? (
-          <div className="bg-zinc-900/90 border border-zinc-700 rounded-xl p-8 text-center flex flex-col items-center justify-center gap-3 my-4">
-            <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center text-xl font-bold">
-              ✓
-            </div>
-            <h3 className="font-bold text-lg text-white">Message Sent!</h3>
-            <p className="text-xs text-zinc-400 max-w-xs">
-              Thank you for reaching out. The window will close automatically.
-            </p>
+      {/* Social Links */}
+      <div className="social-links">
+        <a
+          href={socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-link"
+        >
+          <Github size={15} />
+          <span>GitHub</span>
+          <span className="external-arrow">↗</span>
+        </a>
+
+        <a
+          href={socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-link"
+        >
+          <Linkedin size={15} />
+          <span>LinkedIn</span>
+          <span className="external-arrow">↗</span>
+        </a>
+
+        <a
+          href={`mailto:${socials.email}`}
+          className="social-link"
+        >
+          <Mail size={15} />
+          <span>Email</span>
+          <span className="external-arrow">↗</span>
+        </a>
+      </div>
+
+      {/* Form / Success */}
+      {isDone ? (
+        <div className="success-card">
+          <div className="success-icon">
+            ✓
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-3.5">
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider block mb-1">Your Name</label>
+
+          <h3>Message sent!</h3>
+
+          <p>
+            Thanks for reaching out. I'll get back to you as soon as possible.
+          </p>
+
+          <div className="success-status">
+            <span />
+            Window closing automatically
+          </div>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="contact-form">
+          {/* Name + Email */}
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="name">
+                Your Name
+              </label>
+
+              <div className="input-wrapper">
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={name}
-                  onChange={e => setName(e.target.value)}
-                  placeholder="Enter your name"
-                  className="w-full bg-zinc-900 border border-zinc-700 focus:border-white focus:outline-none text-white text-xs rounded-lg px-3 py-2 transition-all placeholder:text-zinc-600"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="John Doe"
                   required
                 />
               </div>
-              <div>
-                <label className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider block mb-1">Email Address</label>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">
+                Email Address
+              </label>
+
+              <div className="input-wrapper">
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  className="w-full bg-zinc-900 border border-zinc-700 focus:border-white focus:outline-none text-white text-xs rounded-lg px-3 py-2 transition-all placeholder:text-zinc-600"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="john@example.com"
                   required
                 />
               </div>
             </div>
+          </div>
 
-            <div>
-              <label className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider block mb-1">Subject</label>
+          {/* Subject */}
+          <div className="form-group">
+            <label htmlFor="subject">
+              Subject
+            </label>
+
+            <div className="input-wrapper">
               <input
+                id="subject"
                 type="text"
                 name="subject"
                 value={subject}
-                onChange={e => setSubject(e.target.value)}
+                onChange={(e) => setSubject(e.target.value)}
                 placeholder="What would you like to discuss?"
-                className="w-full bg-zinc-900 border border-zinc-700 focus:border-white focus:outline-none text-white text-xs rounded-lg px-3 py-2 transition-all placeholder:text-zinc-600"
                 required
               />
             </div>
+          </div>
 
-            <div>
-              <label className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider block mb-1">Message</label>
+          {/* Message */}
+          <div className="form-group">
+            <div className="label-row">
+              <label htmlFor="message">
+                Message
+              </label>
+
+              <span className="optional-label">
+                Tell me a little more
+              </span>
+            </div>
+
+            <div className="input-wrapper textarea-wrapper">
               <textarea
+                id="message"
                 name="message"
                 value={message}
-                onChange={e => setMessage(e.target.value)}
-                rows={4}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={5}
                 placeholder="Write your message here..."
-                className="w-full bg-zinc-900 border border-zinc-700 focus:border-white focus:outline-none text-white text-xs rounded-lg px-3 py-2 resize-none transition-all placeholder:text-zinc-600"
                 required
               />
             </div>
+          </div>
 
-            <button
-              type="submit"
-              disabled={isBtnLoading}
-              className="w-full bg-white hover:bg-zinc-200 active:bg-zinc-300 text-black font-bold text-xs uppercase tracking-wider py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
-            >
-              {isBtnLoading ? (
-                <>
-                  <div className="w-3.5 h-3.5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                  <span>Sending...</span>
-                </>
-              ) : (
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={isBtnLoading}
+            className="submit-button"
+          >
+            {isBtnLoading ? (
+              <>
+                <span className="spinner" />
+                <span>Sending message...</span>
+              </>
+            ) : (
+              <>
                 <span>Send Message</span>
-              )}
-            </button>
-          </form>
-        )}
-      </div>
+                <span className="button-arrow">→</span>
+              </>
+            )}
+          </button>
 
-      <div className="mt-3 pt-2 border-t border-zinc-900 text-[10px] text-zinc-500 text-center uppercase tracking-widest">
-        Monochrome Black & White Form • Auto-Closes On Send
-      </div>
+          <p className="form-note">
+            <span className="status-dot" />
+            Usually responds within 24–48 hours
+          </p>
+        </form>
+      )}
     </div>
-  );
+  </div>
+);
 }
